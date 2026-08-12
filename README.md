@@ -5,6 +5,8 @@
 [![Tested up to](https://img.shields.io/wordpress/plugin/tested/spotmaniac-dog-pedigree)](https://wordpress.org/plugins/spotmaniac-dog-pedigree/)
 [![License: GPL v2 or later](https://img.shields.io/badge/license-GPLv2%2B-blue)](https://www.gnu.org/licenses/gpl-2.0.html)
 
+![Spotmaniac Dog Pedigree](https://ps.w.org/spotmaniac-dog-pedigree/assets/banner-1544x500.png)
+
 Turn a WordPress site into a dog registry. Kennels, breed clubs, and breeders
 use it to keep structured records for each dog, link parents into a pedigree,
 and publish a searchable public catalogue.
@@ -17,6 +19,7 @@ document.
 ## Contents
 
 - [What the plugin does](#what-the-plugin-does)
+- [Screenshots](#screenshots)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Getting started](#getting-started)
@@ -46,6 +49,31 @@ other is rejected on save with the reason shown on screen.
 
 The public side ships an archive, a single-dog page, and two shortcodes, all of
 which a theme can override.
+
+## Screenshots
+
+The images below are the ones published on WordPress.org, so they always show
+the current release.
+
+**Public catalogue with a responsive card grid, search, and filters**
+
+![Public dog catalogue listing dogs as cards, with a search box and filter controls above the grid](https://ps.w.org/spotmaniac-dog-pedigree/assets/screenshot-1.png)
+
+**Single dog page with a photo hero, colour-coded badges, and the full record**
+
+![Single dog page showing the dog photo, badges for sex and status, and the information sections below](https://ps.w.org/spotmaniac-dog-pedigree/assets/screenshot-2.png)
+
+**Add New Dog, with all 22 fields grouped into sections**
+
+![Admin screen for adding a dog, with the fields grouped into Dog Details, Parents, and Owner boxes](https://ps.w.org/spotmaniac-dog-pedigree/assets/screenshot-3.png)
+
+**Settings, including the editor for the dropdown values**
+
+![Admin settings page with a sortable repeater for editing the colour, size, and breeding status options](https://ps.w.org/spotmaniac-dog-pedigree/assets/screenshot-4.png)
+
+**Dog list with custom columns**
+
+![Admin list of dogs with columns for photo, sex, colour, birth date, and registration number](https://ps.w.org/spotmaniac-dog-pedigree/assets/screenshot-5.png)
 
 ## Requirements
 
