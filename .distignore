@@ -1,0 +1,33 @@
+# Everything listed here stays out of the WordPress.org release.
+# The deploy workflow syncs the repo to SVN using this list, so anything
+# that is only useful while developing belongs here.
+
+.git
+.github
+.gitignore
+.distignore
+.editorconfig
+README.md
+
+# Build output and dependencies
+dist
+node_modules
+vendor
+composer.json
+composer.lock
+package.json
+package-lock.json
+
+# Tooling configs
+phpcs.xml
+phpcs.xml.dist
+phpunit.xml
+phpunit.xml.dist
+tests
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+*.log

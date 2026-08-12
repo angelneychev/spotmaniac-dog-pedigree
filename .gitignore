@@ -1,0 +1,17 @@
+# Build output (zips are produced by build.sh, one level up)
+/dist/
+*.zip
+
+# Dependencies
+/node_modules/
+/vendor/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs and local scratch
+*.log

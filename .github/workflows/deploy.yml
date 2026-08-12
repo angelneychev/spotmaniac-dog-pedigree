@@ -1,0 +1,64 @@
+name: Deploy to WordPress.org
+
+# Releases are cut by pushing a tag, e.g. v1.0.3. The job refuses to publish
+# unless that tag matches the version recorded inside the plugin, because a
+# mismatch on WordPress.org is awkward to undo.
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  deploy:
+    name: Publish ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the tag
+        uses: actions/checkout@v4
+
+      - name: Verify the tag matches the plugin version
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+
+          HEADER=$(sed -n 's/^[[:space:]]*\*[[:space:]]*Version:[[:space:]]*\([0-9.]*\).*/\1/p' spotmaniac-dog-pedigree.php | head -1)
+          CONST=$(sed -n "s/.*DOGPED_VERSION'[[:space:]]*,[[:space:]]*'\([0-9.]*\)'.*/\1/p" spotmaniac-dog-pedigree.php | head -1)
+          STABLE=$(sed -n 's/^Stable tag:[[:space:]]*\([0-9.]*\).*/\1/p' readme.txt | head -1)
+
+          echo "tag=$TAG  header=$HEADER  const=$CONST  stable=$STABLE"
+
+          FAILED=0
+          for pair in "plugin header:$HEADER" "DOGPED_VERSION:$CONST" "readme Stable tag:$STABLE"; do
+            LABEL="${pair%%:*}"
+            VALUE="${pair#*:}"
+            if [ -z "$VALUE" ]; then
+              echo "::error::Could not read the version from $LABEL."
+              FAILED=1
+            elif [ "$VALUE" != "$TAG" ]; then
+              echo "::error::$LABEL says $VALUE but the tag says $TAG."
+              FAILED=1
+            fi
+          done
+
+          if [ "$FAILED" -ne 0 ]; then
+            echo "Nothing was published. Fix the versions, delete the tag, and tag again."
+            exit 1
+          fi
+
+      - name: Verify the changelog mentions this version
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          if ! grep -q "^= $TAG =" readme.txt; then
+            echo "::error::readme.txt has no changelog entry for $TAG."
+            exit 1
+          fi
+
+      - name: Lint PHP
+        run: find . -path ./node_modules -prune -o -name "*.php" -print0 | xargs -0 -n1 php -l
+
+      - name: Deploy to the WordPress.org repository
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: spotmaniac-dog-pedigree

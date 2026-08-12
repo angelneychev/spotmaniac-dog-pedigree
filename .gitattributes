@@ -1,0 +1,10 @@
+# Normalise line endings so the same bytes are published no matter which
+# machine the release is cut from. Without this, a Windows checkout and the
+# Linux deploy runner disagree and every file looks modified in SVN.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.zip binary
+*.mo binary

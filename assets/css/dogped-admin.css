@@ -1,0 +1,148 @@
+/**
+ * Dog Pedigree - Admin Styles.
+ */
+
+/* ============================================================
+   Repeater Fields
+   ============================================================ */
+
+.dogped-repeater {
+	max-width: 500px;
+}
+
+.dogped-repeater-list {
+	list-style: none;
+	margin: 0 0 8px;
+	padding: 0;
+}
+
+.dogped-repeater-item {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 3px 0;
+	padding: 4px 8px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}
+
+.dogped-repeater-handle {
+	color: #999;
+	cursor: move;
+	flex-shrink: 0;
+}
+
+.dogped-repeater-item input[type="text"] {
+	flex: 1;
+	margin: 0;
+}
+
+.dogped-repeater-remove {
+	color: #b32d2e !important;
+	border-color: #b32d2e !important;
+	flex-shrink: 0;
+	font-size: 16px;
+	line-height: 1;
+	padding: 2px 8px !important;
+	min-height: 28px;
+}
+
+.dogped-repeater-remove:hover {
+	background: #b32d2e !important;
+	color: #fff !important;
+}
+
+.dogped-repeater-add {
+	margin-top: 4px;
+}
+
+.dogped-repeater-list .dogped-sortable-placeholder,
+.dogped-repeater-list .ui-sortable-placeholder {
+	height: 36px;
+	background: #f0f6fc;
+	border: 1px dashed #2271b1;
+	border-radius: 3px;
+	margin: 3px 0;
+	visibility: visible !important;
+}
+
+/* ============================================================
+   Sortable Sections
+   ============================================================ */
+
+.dogped-sortable {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	max-width: 400px;
+}
+
+.dogped-sortable li {
+	padding: 8px 12px;
+	margin: 2px 0;
+	background: #fff;
+	border: 1px solid #ddd;
+	cursor: move;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.dogped-sortable li .dashicons {
+	color: #999;
+}
+
+.dogped-sortable-placeholder {
+	height: 38px;
+	background: #f0f0f1;
+	border: 1px dashed #c3c4c7;
+	margin: 2px 0;
+}
+
+/* ============================================================
+   Parent Search Autocomplete
+   ============================================================ */
+
+.dogped-parent-search-wrapper {
+	position: relative;
+	margin-top: 4px;
+}
+
+.dogped-parent-search-results {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	background: #fff;
+	border: 1px solid #ddd;
+	max-height: 200px;
+	overflow-y: auto;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: none;
+}
+
+.dogped-parent-search-results li {
+	padding: 6px 10px;
+	cursor: pointer;
+}
+
+.dogped-parent-search-results li:hover {
+	background: #2271b1;
+	color: #fff;
+}
+
+/* ============================================================
+   Misc
+   ============================================================ */
+
+.dogped-required {
+	color: #d63638;
+}
+
+.column-dogped_photo {
+	width: 60px;
+}

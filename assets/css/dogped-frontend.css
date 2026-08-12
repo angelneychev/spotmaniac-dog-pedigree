@@ -1,0 +1,357 @@
+/**
+ * Dog Pedigree - Frontend Styles.
+ *
+ * Plugin-specific layout only. Typography, buttons, and form elements
+ * inherit from the active theme.
+ */
+
+/* ============================================================
+   Catalog Grid
+   ============================================================ */
+
+.dogped-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.dogped-grid--siblings {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+/* ============================================================
+   Dog Card
+   ============================================================ */
+
+.dogped-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+    background: #fff;
+}
+
+.dogped-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.dogped-card__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.dogped-card__image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dogped-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dogped-card__image--placeholder .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #ccc;
+}
+
+.dogped-card__info {
+    padding: 0.75rem 1rem;
+}
+
+.dogped-card__name {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+}
+
+.dogped-card__sex,
+.dogped-card__color,
+.dogped-card__birth {
+    display: inline-block;
+    font-size: 0.85em;
+    margin-right: 0.5em;
+    color: #666;
+}
+
+.dogped-card__sex--male { color: #2271b1; }
+.dogped-card__sex--female { color: #d63638; }
+
+/* ============================================================
+   Filters
+   ============================================================ */
+
+.dogped-filters {
+    margin: 1rem 0 1.5rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+}
+
+.dogped-filters__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.dogped-filters__search {
+    flex: 1;
+    min-width: 200px;
+    padding: 8px 12px;
+}
+
+.dogped-filters__select { padding: 8px 12px; }
+.dogped-filters__submit { padding: 8px 20px; cursor: pointer; }
+
+/* ============================================================
+   Pagination
+   ============================================================ */
+
+.dogped-pagination {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.dogped-pagination .page-numbers {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.dogped-pagination .page-numbers.current {
+    background: #2271b1;
+    color: #fff;
+    border-color: #2271b1;
+}
+
+/* ============================================================
+   Single Dog - Layout
+   ============================================================ */
+
+.dogped-single-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.dogped-single__hero {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+.dogped-single__hero--no-photo {
+    grid-template-columns: 1fr;
+}
+
+.dogped-single__hero-photo {
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.dogped-single__image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.dogped-single__hero-info {
+    padding-top: 0.25rem;
+}
+
+.dogped-single__title {
+    margin: 0 0 0.25rem;
+    line-height: 1.2;
+}
+
+.dogped-single__callname {
+    margin: 0 0 0.75rem;
+    font-style: italic;
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* --- Badges --- */
+.dogped-single__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.dogped-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+    background: #f0f0f0;
+    color: #444;
+}
+
+.dogped-sex--male { background: #e8f0fe; color: #1a56db; }
+.dogped-sex--female { background: #fce8e6; color: #c5221f; }
+.dogped-badge--breed { background: #e6f4ea; color: #137333; }
+.dogped-badge--variety { background: #fef7e0; color: #8a6d3b; }
+.dogped-badge--status { background: #f3e8ff; color: #7c3aed; }
+
+/* --- Quick Facts --- */
+.dogped-single__quick-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.dogped-fact {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.dogped-fact--wide {
+    grid-column: 1 / -1;
+}
+
+.dogped-fact dt {
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+.dogped-fact dd {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* --- Description --- */
+.dogped-single__description {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* --- Details Grid --- */
+.dogped-single__details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Section --- */
+.dogped-single__section {
+    margin-bottom: 2rem;
+}
+
+.dogped-single__section h2 {
+    font-size: 1.15em;
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+/* --- Info Table --- */
+.dogped-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dogped-info-table th,
+.dogped-info-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.9em;
+}
+
+.dogped-info-table th {
+    width: 120px;
+    font-weight: 600;
+    color: #666;
+    white-space: nowrap;
+}
+
+.dogped-health-content {
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* ============================================================
+   Archive
+   ============================================================ */
+
+.dogped-archive-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.dogped-no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #888;
+    font-size: 1.1em;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .dogped-single__hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .dogped-single__details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dogped-single__quick-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .dogped-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+
+    .dogped-filters__row {
+        flex-direction: column;
+    }
+
+    .dogped-filters__search,
+    .dogped-filters__select {
+        width: 100%;
+    }
+
+    .dogped-info-table th {
+        width: auto;
+    }
+}
