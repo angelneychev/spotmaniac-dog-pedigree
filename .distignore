@@ -5,6 +5,7 @@
 .git
 .github
 .gitignore
+.gitattributes
 .distignore
 .editorconfig
 README.md
