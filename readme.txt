@@ -4,7 +4,7 @@ Tags: dogs, dog catalog, breeder, kennel, dog registry
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,11 @@ Use the **Support** tab on this page (community forum) for general questions. Pr
 5. Admin - Dog list with custom columns (photo, sex, color, birth date, registration)
 
 == Changelog ==
+
+= 1.0.3 =
+* Fixed: a value that is not a full date is no longer guessed at. A bare year such as 2015 was being turned into today's date, "0000-00-00" into a date before the calendar begins, and a month and year into the first of that month. An invented date on a pedigree looks correct while being wrong, so such a value is now refused and reported instead.
+* Fixed: the dog catalogue archive ignored the page number in the address, so every page after the first showed the first page again.
+* Fixed: search terms from the address bar were sanitised without being unslashed first, which could leave stray backslashes in a search for a name containing an apostrophe.
 
 = 1.0.2 =
 * Fixed: selecting a Father or Mother from the search results sometimes did nothing, leaving the field on "- None -" with the typed text still in the box. The result list could be dismissed before the click was registered; picking a result is now handled the moment the mouse goes down, so the selection always sticks.

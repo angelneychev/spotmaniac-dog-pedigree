@@ -14,7 +14,19 @@ if (! defined('ABSPATH')) {
 
 get_header();
 
-$dogped_params = Dogped_Validator::validate_search($_GET); // phpcs:ignore WordPress.Security.NonceVerification
+$dogped_params = Dogped_Validator::validate_search(wp_unslash($_GET)); // phpcs:ignore WordPress.Security.NonceVerification
+
+// On a pretty permalink the page number arrives as /dogs/page/2/, which is a
+// query variable and never appears in $_GET. Reading it from $_GET alone left
+// the number stuck at 1, so every page of the archive returned the first one.
+$dogped_paged = (int) get_query_var('paged');
+if (! $dogped_paged) {
+    $dogped_paged = (int) get_query_var('page');
+}
+if (! $dogped_paged) {
+    $dogped_paged = (int) $dogped_params['paged'];
+}
+$dogped_params['paged'] = max(1, $dogped_paged);
 ?>
 
 <div class="dogped-archive-wrap">

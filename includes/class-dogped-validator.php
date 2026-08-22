@@ -147,7 +147,7 @@ class Dogped_Validator
             return false;
         }
 
-        $formats = array( 'Y-m-d', 'd.m.Y', 'd/m/Y', 'm/d/Y', 'd-m-Y' );
+        $formats = array( 'Y-m-d', 'Y/m/d', 'Y.m.d', 'd.m.Y', 'd/m/Y', 'm/d/Y', 'd-m-Y' );
         foreach ($formats as $format) {
             $dt = DateTime::createFromFormat($format, $date);
             if ($dt && $dt->format($format) === $date) {
@@ -155,11 +155,12 @@ class Dogped_Validator
             }
         }
 
-        $ts = strtotime($date);
-        if (false !== $ts) {
-            return gmdate('Y-m-d', $ts);
-        }
-
+        // Deliberately no strtotime() fallback. It answers for input that is not
+        // a date at all: a bare "2015" comes back as today, "0000-00-00" as a
+        // year before the calendar, "May 2015" as the first of the month. On a
+        // pedigree an invented date is worse than none, and worse still because
+        // it looks correct. Anything not matching a format above is refused, and
+        // the caller reports it.
         return false;
     }
 
