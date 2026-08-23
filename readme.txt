@@ -2,9 +2,9 @@
 Contributors: angelneychev
 Tags: dogs, dog catalog, breeder, kennel, dog registry
 Requires at least: 6.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,9 @@ Use the **Support** tab on this page (community forum) for general questions. Pr
 5. Admin - Dog list with custom columns (photo, sex, color, birth date, registration)
 
 == Changelog ==
+
+= 1.0.4 =
+* Tested with WordPress 7.1.
 
 = 1.0.3 =
 * Fixed: a value that is not a full date is no longer guessed at. A bare year such as 2015 was being turned into today's date, "0000-00-00" into a date before the calendar begins, and a month and year into the first of that month. An invented date on a pedigree looks correct while being wrong, so such a value is now refused and reported instead.
