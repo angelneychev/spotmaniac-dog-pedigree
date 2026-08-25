@@ -4,7 +4,7 @@
  * Plugin Name: Spotmaniac Dog Pedigree
  * Plugin URI:  https://dogspedigree.lemonsqueezy.com/
  * Description: A dog catalog plugin for breeders. Custom post type with 22 fields, public catalog with filters, single dog pages with photo and key info, owner self-edit, and template overrides.
- * Version:     1.0.4
+ * Version:     1.0.5
  * Author:      Angel Neychev
  * Author URI:  https://spotmaniac.com
  * License:     GPL-2.0-or-later
@@ -22,7 +22,7 @@ if (! defined('ABSPATH')) {
 }
 
 // Plugin constants.
-define('DOGPED_VERSION', '1.0.4');
+define('DOGPED_VERSION', '1.0.5');
 define('DOGPED_FILE', __FILE__);
 define('DOGPED_PATH', plugin_dir_path(__FILE__));
 define('DOGPED_URL', plugin_dir_url(__FILE__));

@@ -4,7 +4,7 @@ Tags: dogs, dog catalog, breeder, kennel, dog registry
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -183,6 +183,9 @@ Use the **Support** tab on this page (community forum) for general questions. Pr
 5. Admin - Dog list with custom columns (photo, sex, color, birth date, registration)
 
 == Changelog ==
+
+= 1.0.5 =
+* Fixed: the Dogs Per Page setting offers up to 100, but the catalogue never showed more than 50. A site set to 100 quietly served half its dogs, with nothing on screen to say the setting was being ignored. The two limits now agree. A per_page value passed in the address is still capped, which is where an unbounded number would actually cost something.
 
 = 1.0.4 =
 * Tested with WordPress 7.1.

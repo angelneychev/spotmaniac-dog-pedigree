@@ -213,7 +213,12 @@ class Dogped_Validator
         }
 
         $clean['paged']    = max(1, absint($params['paged'] ?? 1));
-        $clean['per_page'] = min(50, max(1, absint($params['per_page'] ?? (int) dogped_get_option('catalog_count', 12))));
+        // The ceiling has to match the maximum the settings field offers, which
+        // is 100. It used to be 50, so a site set to show 100 dogs per page
+        // quietly served half of them, with no hint that the setting was being
+        // ignored. The cap still applies to a per_page supplied in the query
+        // string, which is where an unbounded value would actually hurt.
+        $clean['per_page'] = min(100, max(1, absint($params['per_page'] ?? (int) dogped_get_option('catalog_count', 12))));
         $clean['orderby']  = in_array(( $params['orderby'] ?? '' ), array( 'title', 'date', 'modified' ), true)
             ? $params['orderby']
             : dogped_get_option('catalog_orderby', 'title');
